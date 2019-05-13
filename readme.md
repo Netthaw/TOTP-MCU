@@ -1,4 +1,4 @@
-TOTP Library with Pure C for ALL MCU
+TOTP Library Pure C for ALL MCU
 ====================
 
 Library to generate Time-based One-Time Passwords.
