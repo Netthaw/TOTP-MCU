@@ -37,6 +37,8 @@ datetime.tm_year = 2019;
 uint32_t newCode = getCodeFromTimeStruct(datetime);
 ```
 
+You can see Example in blink.c
+
 Thanks to:
 ----------
 
