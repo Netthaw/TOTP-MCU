@@ -20,7 +20,7 @@ void setTimezone(uint8_t timezone){
 uint32_t TimeStruct2Timestamp(struct tm time){
     time.tm_mon -= 1;
     time.tm_year -= 1900;
-    return mktime(&(time)) + (_timezone * 3600);
+    return mktime(&(time)) - (_timezone * 3600) - 2208988800;
 }
 
 // Generate a code, using the timestamp provided
