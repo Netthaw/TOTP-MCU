@@ -62,7 +62,7 @@ uint32_t getCodeFromSteps(uint32_t steps) {
     }
 
     // STEP 3, compute the OTP value
-    // _truncatedHash &= 0x7FFFFFFF;    //Disabled
+    _truncatedHash &= 0x7FFFFFFF;    //Disabled
     _truncatedHash %= 1000000;
 
     return _truncatedHash;
