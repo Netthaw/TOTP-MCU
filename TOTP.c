@@ -25,7 +25,7 @@ uint32_t TimeStruct2Timestamp(struct tm time){
 
 // Generate a code, using the timestamp provided
 uint32_t getCodeFromTimestamp(uint32_t timeStamp) {
-    uint32_t steps = (timeStamp -  (3600 * (_timezone % 2))) / _timeStep; // epoch 1 hours
+    uint32_t steps = timeStamp / _timeStep;
     return getCodeFromSteps(steps);
 }
 
