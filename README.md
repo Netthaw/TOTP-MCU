@@ -22,7 +22,7 @@ uint8_t hmacKey[] = {0x4d, 0x79, 0x4c, 0x65, 0x67, 0x6f, 0x44, 0x6f, 0x6f, 0x72}
 ```
 And this if you want to get code From timestamp
 ```
-TOTP(hmacKey, 10, 30);                                     // Secret key, Key length, Timestep (30s)
+TOTP(hmacKey, 10, 30);                                     // Secret key, Secret key length, Timestep (30s)
 
 uint32_t newCode = getCodeFromTimestamp(1557414000);       // Timestamp Now
 ```
