@@ -14,7 +14,9 @@ First include header to your file
 ```
 #include <totp.h>
 ```
-After included, define key ex. Key is MyLegoDoor
+After included, define key ex. Key is ```MyLegoDoor```
+- Note:: Format of hmacKey is Hexdecimal grouped with Byte.
+- You can check ACSII - Hex from [This site for Hex Decoder](https://cryptii.com/pipes/hex-decoder) or [This site for Hex Encoder](https://convertstring.com/EncodeDecode/HexEncode)
 ```
 uint8_t hmacKey[] = {0x4d, 0x79, 0x4c, 0x65, 0x67, 0x6f, 0x44, 0x6f, 0x6f, 0x72};               // Secret key
 ```
@@ -22,7 +24,6 @@ And this if you want to get code From timestamp
 ```
 TOTP(hmacKey, 10, 30);                                     // Secret key, Key length, Timestep (30s)
 
-setTimezone(9);                                            // Set timezone +9 Japan
 uint32_t newCode = getCodeFromTimestamp(1557414000);       // Timestamp Now
 ```
 Or this if you want to get code From struct tm (Time Struct in C), 
@@ -35,6 +36,11 @@ datetime.tm_mday = 13;
 datetime.tm_mon = 5;
 datetime.tm_year = 2019;
 uint32_t newCode = getCodeFromTimeStruct(datetime);
+```
+
+If your Server is not based on UTC+0. Insert this code before ```getCodeFromTimestamp``` or ```getCodeFromTimeStruct```
+```
+setTimezone(9);                                            // Set timezone +9 Japan
 ```
 
 You can see Example in blink.c
