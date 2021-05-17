@@ -3,7 +3,7 @@
 
 uint8_t* _hmacKey;
 uint8_t _keyLength;
-uint8_t _timezone;
+uint8_t _timeZoneOffset;
 uint32_t _timeStep;
 
 // Init the library with the private key, its length and the timeStep duration
@@ -14,13 +14,13 @@ void TOTP(uint8_t* hmacKey, uint8_t keyLength, uint32_t timeStep) {
 }
 
 void setTimezone(uint8_t timezone){
-    _timezone = timezone;
+    _timeZoneOffset = timezone;
 }
 
 uint32_t TimeStruct2Timestamp(struct tm time){
     //time.tm_mon -= 1;
     //time.tm_year -= 1900;
-    return mktime(&(time)) - (_timezone * 3600) - 2208988800;
+    return mktime(&(time)) - (_timeZoneOffset * 3600) - 2208988800;
 }
 
 // Generate a code, using the timestamp provided
